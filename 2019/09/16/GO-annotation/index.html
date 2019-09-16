@@ -6,17 +6,17 @@
   <meta name="keywords" content>
   <meta name="description" content="詹梦涛的生信博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="title: De novo 基因组GO 注释小窗口date: 2019-09-16 08:48:48 –目前对于GO功能注释的思路有 以下常见的三种： 1、BLAST+InterProScan =&amp;gt; omicsbox可以先通过使用 blastp 进行nr注释，那么问题就来了，nr 数据库截至2018年12月已经有120G左右的数据量了，根据我的个人使用经验，对25000条蛋白进行32线程">
+<meta name="description" content="title: De novo 基因组GO 注释小窗口 date: 2019-09-16 08:48:48目前对于GO功能注释的思路有 以下常见的三种： 1、BLAST+InterProScan =&amp;gt; omicsbox可以先通过使用 blastp 进行nr注释，那么问题就来了，nr 数据库截至2018年12月已经有120G左右的数据量了，根据我的个人使用经验，对25000条蛋白进行32线程的">
 <meta property="og:type" content="article">
 <meta property="og:title" content="詹梦涛的生信博客">
 <meta property="og:url" content="http://yoursite.com/2019/09/16/GO-annotation/index.html">
 <meta property="og:site_name" content="詹梦涛的生信博客">
-<meta property="og:description" content="title: De novo 基因组GO 注释小窗口date: 2019-09-16 08:48:48 –目前对于GO功能注释的思路有 以下常见的三种： 1、BLAST+InterProScan =&amp;gt; omicsbox可以先通过使用 blastp 进行nr注释，那么问题就来了，nr 数据库截至2018年12月已经有120G左右的数据量了，根据我的个人使用经验，对25000条蛋白进行32线程">
+<meta property="og:description" content="title: De novo 基因组GO 注释小窗口 date: 2019-09-16 08:48:48目前对于GO功能注释的思路有 以下常见的三种： 1、BLAST+InterProScan =&amp;gt; omicsbox可以先通过使用 blastp 进行nr注释，那么问题就来了，nr 数据库截至2018年12月已经有120G左右的数据量了，根据我的个人使用经验，对25000条蛋白进行32线程的">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-09-16T12:49:06.847Z">
+<meta property="og:updated_time" content="2019-09-16T12:51:39.063Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="詹梦涛的生信博客">
-<meta name="twitter:description" content="title: De novo 基因组GO 注释小窗口date: 2019-09-16 08:48:48 –目前对于GO功能注释的思路有 以下常见的三种： 1、BLAST+InterProScan =&amp;gt; omicsbox可以先通过使用 blastp 进行nr注释，那么问题就来了，nr 数据库截至2018年12月已经有120G左右的数据量了，根据我的个人使用经验，对25000条蛋白进行32线程">
+<meta name="twitter:description" content="title: De novo 基因组GO 注释小窗口 date: 2019-09-16 08:48:48目前对于GO功能注释的思路有 以下常见的三种： 1、BLAST+InterProScan =&amp;gt; omicsbox可以先通过使用 blastp 进行nr注释，那么问题就来了，nr 数据库截至2018年12月已经有120G左右的数据量了，根据我的个人使用经验，对25000条蛋白进行32线程的">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -225,7 +225,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-09-16 20:49:06'>2019-09-16 20:32</time>
+        创建时间:<time class="date" title='更新时间: 2019-09-16 20:51:39'>2019-09-16 20:32</time>
         
     </div>
     <div class="article-meta">
@@ -247,7 +247,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、BLAST-InterProScan-gt-omicsbox"><span class="toc-text">1、BLAST+InterProScan =&gt; omicsbox</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-缩小数据库："><span class="toc-text">(1) 缩小数据库：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-diamond-Accelerated-BLAST-compatible-local-sequence-aligner"><span class="toc-text">(2) diamond: Accelerated BLAST compatible local sequence aligner.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#diamond-及-Blast2go-的联用"><span class="toc-text">diamond 及 Blast2go 的联用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-blast2go本地化"><span class="toc-text">(1) blast2go本地化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-下载NR-数据库到自己的Blast-db-中"><span class="toc-text">(2) 下载NR 数据库到自己的Blast+ db 中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-整合InterProScan的结果可以使用下面的脚本"><span class="toc-text">(3) 整合InterProScan的结果可以使用下面的脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、InterProScan"><span class="toc-text">2、InterProScan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、eggNOG-Mapper-（包括网页版和本地化）"><span class="toc-text">3、eggNOG-Mapper （包括网页版和本地化）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-网页版"><span class="toc-text">(1) 网页版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-本地化推荐两个教程吧："><span class="toc-text">(2) 本地化推荐两个教程吧：</span></a></li></ol></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#date-2019-09-16-08-48-48"><span class="toc-text">date: 2019-09-16 08:48:48</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#1、BLAST-InterProScan-gt-omicsbox"><span class="toc-text">1、BLAST+InterProScan =&gt; omicsbox</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-缩小数据库："><span class="toc-text">(1) 缩小数据库：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-diamond-Accelerated-BLAST-compatible-local-sequence-aligner"><span class="toc-text">(2) diamond: Accelerated BLAST compatible local sequence aligner.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#diamond-及-Blast2go-的联用"><span class="toc-text">diamond 及 Blast2go 的联用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-blast2go本地化"><span class="toc-text">(1) blast2go本地化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-下载NR-数据库到自己的Blast-db-中"><span class="toc-text">(2) 下载NR 数据库到自己的Blast+ db 中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-整合InterProScan的结果可以使用下面的脚本"><span class="toc-text">(3) 整合InterProScan的结果可以使用下面的脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、InterProScan"><span class="toc-text">2、InterProScan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、eggNOG-Mapper-（包括网页版和本地化）"><span class="toc-text">3、eggNOG-Mapper （包括网页版和本地化）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-网页版"><span class="toc-text">(1) 网页版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-本地化推荐两个教程吧："><span class="toc-text">(2) 本地化推荐两个教程吧：</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -263,8 +263,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <hr>
-<p>title: De novo 基因组GO 注释小窗口<br>date: 2019-09-16 08:48:48</p>
-<p>–<br>目前对于GO功能注释的思路有 以下常见的三种：</p>
+<p>title: De novo 基因组GO 注释小窗口</p>
+<h2 id="date-2019-09-16-08-48-48"><a href="#date-2019-09-16-08-48-48" class="headerlink" title="date: 2019-09-16 08:48:48"></a>date: 2019-09-16 08:48:48</h2><p>目前对于GO功能注释的思路有 以下常见的三种：</p>
 <h2 id="1、BLAST-InterProScan-gt-omicsbox"><a href="#1、BLAST-InterProScan-gt-omicsbox" class="headerlink" title="1、BLAST+InterProScan =&gt; omicsbox"></a>1、BLAST+InterProScan =&gt; omicsbox</h2><p>可以先通过使用 blastp 进行nr注释，那么问题就来了，nr 数据库截至2018年12月已经有120G左右的数据量了，根据我的个人使用经验，对25000条蛋白进行32线程的并行化比对，差不多要半个月左右。很显然，在计算资源有限的条件下这是不现实的，那么大概就会出现两种思路：</p>
 <h3 id="1-缩小数据库："><a href="#1-缩小数据库：" class="headerlink" title="(1) 缩小数据库："></a>(1) 缩小数据库：</h3><p>一种是使用Swiss-Prot等小的数据库进行注释；另一种就是根据基于taxid构建 nr子数据库了，具体的构建可见 基于taxid构建Blast database_bioinfomatics2medicine_新浪博客 </p>
 <h3 id="2-diamond-Accelerated-BLAST-compatible-local-sequence-aligner"><a href="#2-diamond-Accelerated-BLAST-compatible-local-sequence-aligner" class="headerlink" title="(2) diamond: Accelerated BLAST compatible local sequence aligner."></a>(2) diamond: Accelerated BLAST compatible local sequence aligner.</h3><p>其主页介绍如下：</p>
@@ -327,7 +327,7 @@
     
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="詹梦涛">詹梦涛</a></p>
     <p><span class="copy-title">发布时间:</span>2019-09-16, 20:32:41</p>
-    <p><span class="copy-title">最后更新:</span>2019-09-16, 20:49:06</p>
+    <p><span class="copy-title">最后更新:</span>2019-09-16, 20:51:39</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/09/16/GO-annotation/" title="">http://yoursite.com/2019/09/16/GO-annotation/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
