@@ -6,17 +6,17 @@
   <meta name="keywords" content>
   <meta name="description" content="詹梦涛的生信博客">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="description" content="title: De novo 基因组GO 注释小窗口date: 2019-09-16 08:48:48 –目前对于GO功能注释的思路有 以下常见的三种： 1、BLAST+InterProScan =&amp;gt; omicsbox可以先通过使用 blastp 进行nr注释，那么问题就来了，nr 数据库截至2018年12月已经有120G左右的数据量了，根据我的个人使用经验，对25000条蛋白进行32线程">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2019/09/16/hello-world/index.html">
+<meta property="og:title" content="詹梦涛的生信博客">
+<meta property="og:url" content="http://yoursite.com/2019/09/16/GO-annotation/index.html">
 <meta property="og:site_name" content="詹梦涛的生信博客">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="title: De novo 基因组GO 注释小窗口date: 2019-09-16 08:48:48 –目前对于GO功能注释的思路有 以下常见的三种： 1、BLAST+InterProScan =&amp;gt; omicsbox可以先通过使用 blastp 进行nr注释，那么问题就来了，nr 数据库截至2018年12月已经有120G左右的数据量了，根据我的个人使用经验，对25000条蛋白进行32线程">
 <meta property="og:locale" content="zh">
-<meta property="og:updated_time" content="2019-09-16T03:35:12.763Z">
+<meta property="og:updated_time" content="2019-09-16T12:49:06.847Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta name="twitter:title" content="詹梦涛的生信博客">
+<meta name="twitter:description" content="title: De novo 基因组GO 注释小窗口date: 2019-09-16 08:48:48 –目前对于GO功能注释的思路有 以下常见的三种： 1、BLAST+InterProScan =&amp;gt; omicsbox可以先通过使用 blastp 进行nr注释，那么问题就来了，nr 数据库截至2018年12月已经有120G左右的数据量了，根据我的个人使用经验，对25000条蛋白进行32线程">
 
 
 <link rel="icon" href="/img/avatar.jpg">
@@ -225,7 +225,7 @@
     </div>
     <div class="article-meta">
         
-        创建时间:<time class="date" title='更新时间: 2019-09-16 20:37:26'>2019-09-16 20:32</time>
+        创建时间:<time class="date" title='更新时间: 2019-09-16 20:49:06'>2019-09-16 20:32</time>
         
     </div>
     <div class="article-meta">
@@ -247,7 +247,7 @@
     
     <div class="toc-ref">
     
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#tags-annotation"><span class="toc-text">tags: annotation</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、BLAST-InterProScan-gt-omicsbox"><span class="toc-text">1、BLAST+InterProScan =&gt; omicsbox</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-缩小数据库："><span class="toc-text">(1) 缩小数据库：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-diamond-Accelerated-BLAST-compatible-local-sequence-aligner"><span class="toc-text">(2) diamond: Accelerated BLAST compatible local sequence aligner.</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#diamond-及-Blast2go-的联用"><span class="toc-text">diamond 及 Blast2go 的联用</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-blast2go本地化"><span class="toc-text">(1) blast2go本地化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-下载NR-数据库到自己的Blast-db-中"><span class="toc-text">(2) 下载NR 数据库到自己的Blast+ db 中</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-整合InterProScan的结果可以使用下面的脚本"><span class="toc-text">(3) 整合InterProScan的结果可以使用下面的脚本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、InterProScan"><span class="toc-text">2、InterProScan</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、eggNOG-Mapper-（包括网页版和本地化）"><span class="toc-text">3、eggNOG-Mapper （包括网页版和本地化）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-网页版"><span class="toc-text">(1) 网页版</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-本地化推荐两个教程吧："><span class="toc-text">(2) 本地化推荐两个教程吧：</span></a></li></ol></li></ol>
     
 <style>
     .left-col .switch-btn,
@@ -264,13 +264,10 @@
       
         <hr>
 <p>title: De novo 基因组GO 注释小窗口<br>date: 2019-09-16 08:48:48</p>
-<h2 id="tags-annotation"><a href="#tags-annotation" class="headerlink" title="tags: annotation"></a>tags: annotation</h2><p>目前对于GO功能注释的思路有 以下常见的三种：</p>
-<p>1、BLAST+InterProScan =&gt; omicsbox</p>
-<p>可以先通过使用 blastp 进行nr注释，那么问题就来了，nr 数据库截至2018年12月已经有120G左右的数据量了，根据我的个人使用经验，对25000条蛋白进行32线程的并行化比对，差不多要半个月左右。很显然，在计算资源有限的条件下这是不现实的，那么大概就会出现两种思路：</p>
-<p>(1) 缩小数据库：</p>
-<p>一种是使用Swiss-Prot等小的数据库进行注释；另一种就是根据基于taxid构建 nr子数据库了，具体的构建可见 基于taxid构建Blast database_bioinfomatics2medicine_新浪博客 </p>
-<p>(2) diamond: Accelerated BLAST compatible local sequence aligner.</p>
-<p>其主页介绍如下：</p>
+<p>–<br>目前对于GO功能注释的思路有 以下常见的三种：</p>
+<h2 id="1、BLAST-InterProScan-gt-omicsbox"><a href="#1、BLAST-InterProScan-gt-omicsbox" class="headerlink" title="1、BLAST+InterProScan =&gt; omicsbox"></a>1、BLAST+InterProScan =&gt; omicsbox</h2><p>可以先通过使用 blastp 进行nr注释，那么问题就来了，nr 数据库截至2018年12月已经有120G左右的数据量了，根据我的个人使用经验，对25000条蛋白进行32线程的并行化比对，差不多要半个月左右。很显然，在计算资源有限的条件下这是不现实的，那么大概就会出现两种思路：</p>
+<h3 id="1-缩小数据库："><a href="#1-缩小数据库：" class="headerlink" title="(1) 缩小数据库："></a>(1) 缩小数据库：</h3><p>一种是使用Swiss-Prot等小的数据库进行注释；另一种就是根据基于taxid构建 nr子数据库了，具体的构建可见 基于taxid构建Blast database_bioinfomatics2medicine_新浪博客 </p>
+<h3 id="2-diamond-Accelerated-BLAST-compatible-local-sequence-aligner"><a href="#2-diamond-Accelerated-BLAST-compatible-local-sequence-aligner" class="headerlink" title="(2) diamond: Accelerated BLAST compatible local sequence aligner."></a>(2) diamond: Accelerated BLAST compatible local sequence aligner.</h3><p>其主页介绍如下：</p>
 <p>DIAMOND is a sequence aligner for protein and translated DNA searches, designed for high performance analysis of big sequence data. The key features are:</p>
 <p>Pairwise alignment of proteins and translated DNA at 500x-20,000x speed of BLAST.</p>
 <p>Frameshift alignments for long read analysis.</p>
@@ -278,17 +275,14 @@
 <p>Various output formats, including BLAST pairwise, tabular and XML, as well as taxonomic classification.</p>
 <p>它就是那么快，相对于 blastp 的半个月，在 ‘–more-sensitive’ 模式下也仅需要4-5个小时。</p>
 <p>在nr注释完之后,就到使用 omicsbox  mapping GO id 了。omicsbox 所有版本均需要购买，但价格比以前（Blast2GO）便宜很多。当然如果条件不允许，那么不如就来个本地化吧。</p>
-<p>diamond 及 Blast2go 的联用</p>
-<p>(1) blast2go本地化</p>
-<p>陈连福 centos6.9 代码：</p>
+<h2 id="diamond-及-Blast2go-的联用"><a href="#diamond-及-Blast2go-的联用" class="headerlink" title="diamond 及 Blast2go 的联用"></a>diamond 及 Blast2go 的联用</h2><h3 id="1-blast2go本地化"><a href="#1-blast2go本地化" class="headerlink" title="(1) blast2go本地化"></a>(1) blast2go本地化</h3><p>陈连福 centos6.9 代码：</p>
 <p>installing Blast2go Databases</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mkdir /opt/biosoft/blast2go</span><br><span class="line"></span><br><span class="line">cd /opt/biosoft/blast2go</span><br><span class="line"></span><br><span class="line">wget http://archive.geneontology.org/latest-full/go_monthly-assocdb-data.gz</span><br><span class="line"></span><br><span class="line">ascp -k 1 -T -l 200M -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh --host=ftp-private.ncbi.nlm.nih.gov --user=anonftp --mode=recv /gene/DATA/gene_info.gz 。/</span><br><span class="line"></span><br><span class="line">ascp -k 1 -T -l 200M -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh --host=ftp-private.ncbi.nlm.nih.gov --user=anonftp --mode=recv /gene/DATA/gene2accession.gz ./</span><br><span class="line"></span><br><span class="line">wget ftp://ftp.pir.georgetown.edu/databases/idmapping/idmapping.tb.gz</span><br></pre></td></tr></table></figure>
 
 <p>注：对于不能使用aspera加速下载的文件可以试试 lftp -e ‘pget -n NUM -c url; exit’实行多线程下载</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">gzip -dv go_monthly-assocdb-data.gz</span><br><span class="line"></span><br><span class="line">gzip -dv gene_info.gz</span><br><span class="line"></span><br><span class="line">gzip -dv gene2accession.gz</span><br><span class="line"></span><br><span class="line">gzip -dv idmapping.tb.gz</span><br><span class="line"></span><br><span class="line">tar zxf ~/software/local_b2g_db.tar.gz</span><br><span class="line"></span><br><span class="line">mv local_b2g_db/* ./  &amp;&amp; rm -rf local_b2g_db/</span><br><span class="line"></span><br><span class="line">perl -p -i -e &apos;s/go_201512-assocdb-data/go_2017-assocdb-data/&apos; install_blast2goDB.sh</span><br><span class="line"></span><br><span class="line">./install_blast2goDB.sh</span><br></pre></td></tr></table></figure>
 
-<p>(2) 下载NR 数据库到自己的Blast+ db 中</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.28/ncbi-blast-2.2.28+-x64-linux.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxf ncbi-blast-2.2.28+-x64-linux.tar.gz -C /opt/biosoft/</span><br><span class="line"></span><br><span class="line">/opt/biosoft/ncbi-blast-2.2.28+/bin/blastdbcmd -db nr -entry all -out nr.faa</span><br></pre></td></tr></table></figure>
+<h3 id="2-下载NR-数据库到自己的Blast-db-中"><a href="#2-下载NR-数据库到自己的Blast-db-中" class="headerlink" title="(2) 下载NR 数据库到自己的Blast+ db 中"></a>(2) 下载NR 数据库到自己的Blast+ db 中</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget ftp://ftp.ncbi.nlm.nih.gov/blast/executables/blast+/2.2.28/ncbi-blast-2.2.28+-x64-linux.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxf ncbi-blast-2.2.28+-x64-linux.tar.gz -C /opt/biosoft/</span><br><span class="line"></span><br><span class="line">/opt/biosoft/ncbi-blast-2.2.28+/bin/blastdbcmd -db nr -entry all -out nr.faa</span><br></pre></td></tr></table></figure>
 
 <p>值得注意的是这里我用的blastdbcmd是ncbi-blast-2.2.28+的，输出的 nr.faa 文件中序列名是 “&gt;gi|66816243|ref|XP_642131.1| hypothetical protein DDB_G0277827” ，但如果用的是 ncbi-blast-2.6.0+的 blastdbcmd，输出没有GI号，原因可能是：As of September 2016, the integer sequence identifiers known as “GIs” will no longer be included in the GenBank, GenPept, and FASTA formats supported by NCBI for the display of sequence records.In addition, the FASTA format will no longer include the database source abbreviation. Please refer to the NCBI News Announcement posting for more detail.</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https://github.com/bbuchfink/diamond/releases/download/v0.9.24/diamond-linux64.tar.gz</span><br></pre></td></tr></table></figure>
@@ -296,16 +290,11 @@
 <p>注：如果在将diamond输出的XML文件导入到 b2g4pipe_v2.5 中出现 “Annotation of 0 seqs with 0 annots finished. Now searching for orfan IPRs…” 这个issues，那可能你的diamond版本有点旧了。</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf diamond-linux64.tar.gz</span><br><span class="line"></span><br><span class="line">mv diamond ~/bin/</span><br><span class="line"></span><br><span class="line">cp ../interpro/proteins.fasta ./</span><br><span class="line"></span><br><span class="line">ascp -k 1 -T -l 200M -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh --host=ftp-private.ncbi.nlm.nih.gov --user=anonftp --mode=recv /pub/taxonomy/accession2taxid/prot.accession2taxid.gz ./prot.accession2taxid.gz</span><br><span class="line"></span><br><span class="line">ascp -k 1 -T -l 200M -i ~/.aspera/connect/etc/asperaweb_id_dsa.openssh --host=ftp-private.ncbi.nlm.nih.gov --user=anonftp --mode=recv /pub/taxonomy/taxdmp.zip ./</span><br><span class="line"></span><br><span class="line">unzip taxdmp.zip</span><br><span class="line"></span><br><span class="line">/opt/biosoft/ncbi-blast-2.2.28+/bin/blastdbcmd -db nr -entry all -out nr.faa</span><br><span class="line"></span><br><span class="line">diamond makedb --in nr.faa -d nr --taxonmap prot.accession2taxid.gz --taxonnodes nodes.dmp #### DIAMOND v0.9.24</span><br><span class="line"></span><br><span class="line">diamond blastp --query proteins.fasta --more-sensitive --db nr --evalue 1e-5 --salltitles --threads 64 --outfmt 5 --out nr.xml</span><br><span class="line"></span><br><span class="line">perl -p -e &apos;s/diamond 0.9.24/BLASTP 2.2.26/&apos; nr.xml &gt; nr_new.xml</span><br><span class="line"></span><br><span class="line">perl -p -i -e &apos;s/^Dbacces.dbname=.*/Dbacces.dbname=b2gdb/&apos; b2gPipe.properties</span><br><span class="line"></span><br><span class="line">perl -p -i -e &apos;s/^Dbacces.dbhost=.*/Dbacces.dbhost=127.0.0.1/&apos; b2gPipe.properties</span><br><span class="line"></span><br><span class="line">java -cp *:ext/*: es.blast2go.prog.B2GAnnotPipe -in ../nr_new.xml -out go -annot -dat -annex</span><br></pre></td></tr></table></figure>
 
-<p>(3) 整合InterProScan的结果可以使用下面的脚本</p>
-<p>merge_interpro_to_go.pl b2g4pipe/go.annot ../interpro/interpro.tsv &gt; go.annot</p>
-<p>2、InterProScan</p>
-<p>对于 InterProScan 可以本地化，也可以用 interProScan5.pl 将序列发送到官方服务器进行注释，资源允许，还是推荐本地化，网络版感觉还是有点慢～一个本地化教程: </p>
+<h3 id="3-整合InterProScan的结果可以使用下面的脚本"><a href="#3-整合InterProScan的结果可以使用下面的脚本" class="headerlink" title="(3) 整合InterProScan的结果可以使用下面的脚本"></a>(3) 整合InterProScan的结果可以使用下面的脚本</h3><p>merge_interpro_to_go.pl b2g4pipe/go.annot ../interpro/interpro.tsv &gt; go.annot</p>
+<h2 id="2、InterProScan"><a href="#2、InterProScan" class="headerlink" title="2、InterProScan"></a>2、InterProScan</h2><p>对于 InterProScan 可以本地化，也可以用 interProScan5.pl 将序列发送到官方服务器进行注释，资源允许，还是推荐本地化，网络版感觉还是有点慢～一个本地化教程: </p>
 <p>InterProScan的使用教程 <a href="http://www.bioinfo-scrounger.com/archives/164" target="_blank" rel="noopener">http://www.bioinfo-scrounger.com/archives/164</a></p>
-<p>3、eggNOG-Mapper （包括网页版和本地化）</p>
-<p>(1) 网页版</p>
-<p>关于这个注释方法网页版的推荐自己去摸索吧（就是和NCBI提交类似）=&gt; <a href="http://eggnogdb.embl.de/#/app/emapper" target="_blank" rel="noopener">http://eggnogdb.embl.de/#/app/emapper</a></p>
-<p>(2) 本地化推荐两个教程吧：</p>
-<p>序列功能注释神器：eggNOG-mapper，KEGG/COG/KOG/GO/BiGG 一网打尽 ： 序列功能注释神器：eggNOG-mapper，KEGG/COG/KOG/GO/BiGG 一网打尽 « Biostack.org =&gt; <a href="http://www.biostack.org/?p=698" target="_blank" rel="noopener">http://www.biostack.org/?p=698</a></p>
+<h2 id="3、eggNOG-Mapper-（包括网页版和本地化）"><a href="#3、eggNOG-Mapper-（包括网页版和本地化）" class="headerlink" title="3、eggNOG-Mapper （包括网页版和本地化）"></a>3、eggNOG-Mapper （包括网页版和本地化）</h2><h3 id="1-网页版"><a href="#1-网页版" class="headerlink" title="(1) 网页版"></a>(1) 网页版</h3><p>关于这个注释方法网页版的推荐自己去摸索吧（就是和NCBI提交类似）=&gt; <a href="http://eggnogdb.embl.de/#/app/emapper" target="_blank" rel="noopener">http://eggnogdb.embl.de/#/app/emapper</a></p>
+<h3 id="2-本地化推荐两个教程吧："><a href="#2-本地化推荐两个教程吧：" class="headerlink" title="(2) 本地化推荐两个教程吧："></a>(2) 本地化推荐两个教程吧：</h3><p>序列功能注释神器：eggNOG-mapper，KEGG/COG/KOG/GO/BiGG 一网打尽 ： 序列功能注释神器：eggNOG-mapper，KEGG/COG/KOG/GO/BiGG 一网打尽 « Biostack.org =&gt; <a href="http://www.biostack.org/?p=698" target="_blank" rel="noopener">http://www.biostack.org/?p=698</a></p>
 <p>应该是最好的eggnog-mapper功能注释教程：应该是最好的eggnog-mapper功能注释教程 - 简书（生信媛）=&gt; <a href="https://www.jianshu.com/p/e646c0fa6443" target="_blank" rel="noopener">https://www.jianshu.com/p/e646c0fa6443</a></p>
 <p>个人思考:</p>
 <p>对于准确性的个人思考，基于比对，也就是基因相似性的注释方法(blastp,diamond)可能会取决于数据库的大小，因为在omicsbox中有涉及到相似度cut这一步，如果数据库不够大，那么相似度有的可能只为50(在cut值之上)，所以只使用Swiss-Prot等小数据库注释时可能需要提高cut值.</p>
@@ -338,7 +327,7 @@
     
     <p><span class="copy-title">本文作者:</span><a href="javascript:void(0)" title="詹梦涛">詹梦涛</a></p>
     <p><span class="copy-title">发布时间:</span>2019-09-16, 20:32:41</p>
-    <p><span class="copy-title">最后更新:</span>2019-09-16, 20:37:26</p>
+    <p><span class="copy-title">最后更新:</span>2019-09-16, 20:49:06</p>
     <span class="copy-title">原始链接:</span><a class="post-url" href="/2019/09/16/GO-annotation/" title="">http://yoursite.com/2019/09/16/GO-annotation/</a>
     <p>
         <span class="copy-title">版权声明:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/" title="CC BY-NC-SA 4.0 International" target = "_blank">"署名-非商用-相同方式共享 4.0"</a> 转载请保留原文链接及作者。
