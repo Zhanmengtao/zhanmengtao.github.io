@@ -2,19 +2,23 @@
 <html lang="zh">
 <head><meta name="generator" content="Hexo 3.9.0">
     <meta charset="utf-8">
-<title>詹梦涛的生信博客</title>
+<title>一个高杂合真菌基因组组装脚本 - 詹梦涛的生信博客</title>
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
 
 
-    <meta property="og:type" content="website">
-<meta property="og:title" content="詹梦涛的生信博客">
-<meta property="og:url" content="http://www.zhanmengtao.top/index.html">
+    <meta name="description" content="前言及背景什么是基因组de novo测序？其是对某一物种进行高通量测序，利用高性能计算平台和生物信息学方法，在不依赖于参考基因组的情况下进行组装，从而绘制该物种的全基因组序列图谱。 针对基因组的特性，基因组常被分为两类：普通（简单）基因组和复杂基因组。简单基因组指单倍体，纯合二倍体或者杂合度&amp;lt;0.5%，且重复序列含量&amp;lt;50%，GC含量为35%到65%之间的二倍体。复杂基因组则指杂合率＞">
+<meta property="og:type" content="article">
+<meta property="og:title" content="一个高杂合真菌基因组组装脚本">
+<meta property="og:url" content="http://www.zhanmengtao.top/2019/10/30/复杂基因组组装/index.html">
 <meta property="og:site_name" content="詹梦涛的生信博客">
+<meta property="og:description" content="前言及背景什么是基因组de novo测序？其是对某一物种进行高通量测序，利用高性能计算平台和生物信息学方法，在不依赖于参考基因组的情况下进行组装，从而绘制该物种的全基因组序列图谱。 针对基因组的特性，基因组常被分为两类：普通（简单）基因组和复杂基因组。简单基因组指单倍体，纯合二倍体或者杂合度&amp;lt;0.5%，且重复序列含量&amp;lt;50%，GC含量为35%到65%之间的二倍体。复杂基因组则指杂合率＞">
 <meta property="og:locale" content="zh">
 <meta property="og:image" content="http://www.zhanmengtao.top/images/og_image.png">
+<meta property="og:updated_time" content="2019-10-30T15:18:18.958Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="詹梦涛的生信博客">
+<meta name="twitter:title" content="一个高杂合真菌基因组组装脚本">
+<meta name="twitter:description" content="前言及背景什么是基因组de novo测序？其是对某一物种进行高通量测序，利用高性能计算平台和生物信息学方法，在不依赖于参考基因组的情况下进行组装，从而绘制该物种的全基因组序列图谱。 针对基因组的特性，基因组常被分为两类：普通（简单）基因组和复杂基因组。简单基因组指单倍体，纯合二倍体或者杂合度&amp;lt;0.5%，且重复序列含量&amp;lt;50%，GC含量为35%到65%之间的二倍体。复杂基因组则指杂合率＞">
 <meta name="twitter:image" content="http://www.zhanmengtao.top/images/og_image.png">
 
 
@@ -85,7 +89,7 @@
         <div class="navbar-brand is-flex-center">
             <a class="navbar-item navbar-logo" href="/">
             
-                <img src="/images/og_image.png" alt="詹梦涛的生信博客" height="28">
+                <img src="/images/og_image.png" alt="一个高杂合真菌基因组组装脚本" height="28">
             
             </a>
         </div>
@@ -93,7 +97,7 @@
             
             <div class="navbar-start">
                 
-                <a class="navbar-item is-active" href="/">Home</a>
+                <a class="navbar-item" href="/">Home</a>
                 
                 <a class="navbar-item" href="/archives">Archives</a>
                 
@@ -130,8 +134,7 @@
     <section class="section">
         <div class="container">
             <div class="columns">
-                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main">
-    <div class="card">
+                <div class="column is-8-tablet is-8-desktop is-6-widescreen has-order-2 column-main"><div class="card">
     
     <div class="card-content article ">
         
@@ -152,7 +155,7 @@
         
         <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
             
-                <a class="has-link-black-ter" href="/2019/10/30/复杂基因组组装/">一个高杂合真菌基因组组装脚本</a>
+                一个高杂合真菌基因组组装脚本
             
         </h1>
         <div class="content">
@@ -177,148 +180,50 @@
 
 
 
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
-        
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-09-16T12:32:41.938Z">2019-09-16</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    11 minutes read (About 1637 words)
-                </span>
-                
-                
-            </div>
-        </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
+<div class="card">
+    <div class="card-content">
+        <h3 class="menu-label has-text-centered">Like this article? Support the author with</h3>
+        <div class="buttons is-centered">
             
-                <a class="has-link-black-ter" href="/2019/09/16/GO-annotation/">De novo 基因组 GO 注释小窗口</a>
-            
-        </h1>
-        <div class="content">
-            <p>目前对于GO功能注释的思路有 以下常见的三种：</p>
-<h2 id="BLAST-InterProScan-gt-omicsbox"><a href="#BLAST-InterProScan-gt-omicsbox" class="headerlink" title="BLAST+InterProScan =&gt; omicsbox"></a>BLAST+InterProScan =&gt; omicsbox</h2><p>可以先通过使用 blastp 进行nr注释，那么问题就来了，nr 数据库截至2018年12月已经有120G左右的数据量了，根据我的个人使用经验，对25000条蛋白进行32线程的并行化比对，差不多要半个月左右。很显然，在计算资源有限的条件下这是不现实的，那么大概就会出现两种思路：</p>
-<h3 id="缩小数据库："><a href="#缩小数据库：" class="headerlink" title="缩小数据库："></a>缩小数据库：</h3><p>一种是使用Swiss-Prot等小的数据库进行注释；另一种就是根据基于taxid构建 nr子数据库了，具体的构建可见 基于taxid构建Blast database_bioinfomatics2medicine_新浪博客 </p>
-<h3 id="diamond-Accelerated-BLAST-compatible-local-sequence-aligner"><a href="#diamond-Accelerated-BLAST-compatible-local-sequence-aligner" class="headerlink" title="diamond: Accelerated BLAST compatible local sequence aligner."></a>diamond: Accelerated BLAST compatible local sequence aligner.</h3><p>其主页介绍如下：</p>
-<p>DIAMOND is a sequence aligner for protein and translated DNA searches, designed for high performance analysis of big sequence data. The key features are:</p>
-<p>Pairwise alignment of proteins and translated DNA at 500x-20,000x speed of BLAST.</p>
-<p>Frameshift alignments for long read analysis.</p>
-<p>Low resource requirements and suitable for running on standard desktops or laptops.</p>
-<p>Various output formats, including BLAST pairwise, tabular and XML, as well as taxonomic classification.</p>
-<p>它就是那么快，相对于 blastp 的半个月，在 ‘–more-sensitive’ 模式下也仅需要4-5个小时。</p>
-<p>在nr注释完之后,就到使用 omicsbox  mapping GO id 了。omicsbox 所有版本均需要购买，但价格比以前（Blast2GO）便宜很多。当然如果条件不允许，那么不如就来个本地化吧。</p>
-<h2 id="diamond-及-Blast2go-的联用"><a href="#diamond-及-Blast2go-的联用" class="headerlink" title="diamond 及 Blast2go 的联用"></a>diamond 及 Blast2go 的联用</h2><h3 id="blast2go本地化"><a href="#blast2go本地化" class="headerlink" title="blast2go本地化"></a>blast2go本地化</h3><p>陈连福 centos6.9 代码：</p>
-<p>installing Blast2go Databases</p>
-<figure class="highlight stylus hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mkdir /opt/biosoft/blast2go</span><br><span class="line"></span><br><span class="line">cd /opt/biosoft/blast2go</span><br><span class="line"></span><br><span class="line">wget http:<span class="hljs-comment">//archive.geneontology.org/latest-full/go_monthly-assocdb-data.gz</span></span><br><span class="line"></span><br><span class="line">ascp -k <span class="hljs-number">1</span> -T -l <span class="hljs-number">200</span>M -<span class="hljs-selector-tag">i</span> ~/.aspera/connect/etc/asperaweb_id_dsa<span class="hljs-selector-class">.openssh</span> --host=ftp-private<span class="hljs-selector-class">.ncbi</span><span class="hljs-selector-class">.nlm</span><span class="hljs-selector-class">.nih</span><span class="hljs-selector-class">.gov</span> --user=anonftp --mode=recv /gene/DATA/gene_info<span class="hljs-selector-class">.gz</span> 。/</span><br><span class="line"></span><br><span class="line">ascp -k <span class="hljs-number">1</span> -T -l <span class="hljs-number">200</span>M -<span class="hljs-selector-tag">i</span> ~/.aspera/connect/etc/asperaweb_id_dsa<span class="hljs-selector-class">.openssh</span> --host=ftp-private<span class="hljs-selector-class">.ncbi</span><span class="hljs-selector-class">.nlm</span><span class="hljs-selector-class">.nih</span><span class="hljs-selector-class">.gov</span> --user=anonftp --mode=recv /gene/DATA/gene2accession<span class="hljs-selector-class">.gz</span> ./</span><br><span class="line"></span><br><span class="line">wget ftp:<span class="hljs-comment">//ftp.pir.georgetown.edu/databases/idmapping/idmapping.tb.gz</span></span><br></pre></td></tr></table></figure>
+                
+<a class="button is-info donate">
+    <span class="icon is-small">
+        <i class="fab fa-alipay"></i>
+    </span>
+    <span>Alipay</span>
+    <div class="qrcode"><img src="/images/alipay.jpg" alt="Alipay"></div>
+</a>
 
-<p>注：对于不能使用aspera加速下载的文件可以试试 lftp -e ‘pget -n NUM -c url; exit’实行多线程下载</p>
-<figure class="highlight stylus hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">gzip -dv go_monthly-assocdb-data.gz</span><br><span class="line"></span><br><span class="line">gzip -dv gene_info.gz</span><br><span class="line"></span><br><span class="line">gzip -dv gene2accession.gz</span><br><span class="line"></span><br><span class="line">gzip -dv idmapping<span class="hljs-selector-class">.tb</span><span class="hljs-selector-class">.gz</span></span><br><span class="line"></span><br><span class="line">tar zxf ~/software/local_b2g_db<span class="hljs-selector-class">.tar</span><span class="hljs-selector-class">.gz</span></span><br><span class="line"></span><br><span class="line">mv local_b2g_db<span class="hljs-comment">/* ./  &amp;&amp; rm -rf local_b2g_db/</span></span><br><span class="line"><span class="hljs-comment"></span></span><br><span class="line"><span class="hljs-comment">perl -p -i -e 's/go_201512-assocdb-data/go_2017-assocdb-data/' install_blast2goDB.sh</span></span><br><span class="line"><span class="hljs-comment"></span></span><br><span class="line"><span class="hljs-comment">./install_blast2goDB.sh</span></span><br></pre></td></tr></table></figure>
+                
+                
+<a class="button is-success donate">
+    <span class="icon is-small">
+        <i class="fab fa-weixin"></i>
+    </span>
+    <span>Wechat</span>
+    <div class="qrcode"><img src="/images/weixin.jpg" alt="Wechat"></div>
+</a>
 
-<h3 id="下载NR-数据库到自己的Blast-db-中"><a href="#下载NR-数据库到自己的Blast-db-中" class="headerlink" title="下载NR 数据库到自己的Blast+ db 中"></a>下载NR 数据库到自己的Blast+ db 中</h3><figure class="highlight vim hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget ftp://ftp.ncbi.nlm.nih.gov/<span class="hljs-keyword">blast</span>/executables/<span class="hljs-keyword">blast</span>+/<span class="hljs-number">2.2</span>.<span class="hljs-number">28</span>/ncbi-<span class="hljs-keyword">blast</span>-<span class="hljs-number">2.2</span>.<span class="hljs-number">28</span>+-x64-linux.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxf ncbi-<span class="hljs-keyword">blast</span>-<span class="hljs-number">2.2</span>.<span class="hljs-number">28</span>+-x64-linux.tar.gz -C /<span class="hljs-keyword">opt</span>/biosoft/</span><br><span class="line"></span><br><span class="line">/<span class="hljs-keyword">opt</span>/biosoft/ncbi-<span class="hljs-keyword">blast</span>-<span class="hljs-number">2.2</span>.<span class="hljs-number">28</span>+/bin/blastdbcmd -db nr -entry <span class="hljs-keyword">all</span> -out nr.faa</span><br></pre></td></tr></table></figure>
-
-<p>值得注意的是这里我用的blastdbcmd是ncbi-blast-2.2.28+的，输出的 nr.faa 文件中序列名是 “&gt;gi|66816243|ref|XP_642131.1| hypothetical protein DDB_G0277827” ，但如果用的是 ncbi-blast-2.6.0+的 blastdbcmd，输出没有GI号，原因可能是：As of September 2016, the integer sequence identifiers known as “GIs” will no longer be included in the GenBank, GenPept, and FASTA formats supported by NCBI for the display of sequence records.In addition, the FASTA format will no longer include the database source abbreviation. Please refer to the NCBI News Announcement posting for more detail.</p>
-<figure class="highlight awk hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/bbuchfink/</span>diamond<span class="hljs-regexp">/releases/</span>download<span class="hljs-regexp">/v0.9.24/</span>diamond-linux64.tar.gz</span><br></pre></td></tr></table></figure>
-
-<p>注：如果在将diamond输出的XML文件导入到 b2g4pipe_v2.5 中出现 “Annotation of 0 seqs with 0 annots finished. Now searching for orfan IPRs…” 这个issues，那可能你的diamond版本有点旧了。</p>
-<figure class="highlight jboss-cli hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf diamond-linux64.tar.gz</span><br><span class="line"></span><br><span class="line">mv diamond ~<span class="hljs-string">/bin/</span></span><br><span class="line"></span><br><span class="line">cp <span class="hljs-string">../interpro/proteins.fasta</span> <span class="hljs-string">./</span></span><br><span class="line"></span><br><span class="line">ascp -k 1 -T -l 200M -i ~<span class="hljs-string">/.aspera/connect/etc/asperaweb_id_dsa.openssh</span> <span class="hljs-params">--host=ftp-private</span>.ncbi.nlm.nih.gov <span class="hljs-params">--user=anonftp</span> <span class="hljs-params">--mode=recv</span> <span class="hljs-string">/pub/taxonomy/accession2taxid/prot.accession2taxid.gz</span> <span class="hljs-string">./prot.accession2taxid.gz</span></span><br><span class="line"></span><br><span class="line">ascp -k 1 -T -l 200M -i ~<span class="hljs-string">/.aspera/connect/etc/asperaweb_id_dsa.openssh</span> <span class="hljs-params">--host=ftp-private</span>.ncbi.nlm.nih.gov <span class="hljs-params">--user=anonftp</span> <span class="hljs-params">--mode=recv</span> <span class="hljs-string">/pub/taxonomy/taxdmp.zip</span> <span class="hljs-string">./</span></span><br><span class="line"></span><br><span class="line">unzip taxdmp.zip</span><br><span class="line"></span><br><span class="line"><span class="hljs-string">/opt/biosoft/ncbi-blast-2.2.28</span>+<span class="hljs-string">/bin/blastdbcmd</span> -db nr -entry all -out nr.faa</span><br><span class="line"></span><br><span class="line">diamond makedb <span class="hljs-params">--in</span> nr.faa -d nr <span class="hljs-params">--taxonmap</span> prot.accession2taxid.gz <span class="hljs-params">--taxonnodes</span> nodes.dmp <span class="hljs-comment">#### DIAMOND v0.9.24</span></span><br><span class="line"></span><br><span class="line">diamond blastp <span class="hljs-params">--query</span> proteins.fasta <span class="hljs-params">--more-sensitive</span> <span class="hljs-params">--db</span> nr <span class="hljs-params">--evalue</span> 1e-5 <span class="hljs-params">--salltitles</span> <span class="hljs-params">--threads</span> 64 <span class="hljs-params">--outfmt</span> 5 <span class="hljs-params">--out</span> nr.xml</span><br><span class="line"></span><br><span class="line">perl -p -e 's/diamond 0.9.24/BLASTP 2.2.26/' nr.xml &gt; nr_new.xml</span><br><span class="line"></span><br><span class="line">perl -p -i -e 's/^Dbacces.dbname=.*<span class="hljs-string">/Dbacces.dbname=b2gdb/</span>' b2gPipe.properties</span><br><span class="line"></span><br><span class="line">perl -p -i -e 's/^Dbacces.dbhost=.*<span class="hljs-string">/Dbacces.dbhost=127.0.0.1/</span>' b2gPipe.properties</span><br><span class="line"></span><br><span class="line">java -cp *<span class="hljs-function">:ext</span>/*: es.blast2go.prog.B2GAnnotPipe -in <span class="hljs-string">../nr_new.xml</span> -out go -annot -dat -annex</span><br></pre></td></tr></table></figure>
-
-<h3 id="整合InterProScan的结果可以使用下面的脚本"><a href="#整合InterProScan的结果可以使用下面的脚本" class="headerlink" title="整合InterProScan的结果可以使用下面的脚本"></a>整合InterProScan的结果可以使用下面的脚本</h3><p>merge_interpro_to_go.pl b2g4pipe/go.annot ../interpro/interpro.tsv &gt; go.annot</p>
-<h2 id="InterProScan"><a href="#InterProScan" class="headerlink" title="InterProScan"></a>InterProScan</h2><p>对于 InterProScan 可以本地化，也可以用 interProScan5.pl 将序列发送到官方服务器进行注释，资源允许，还是推荐本地化，网络版感觉还是有点慢～一个本地化教程: </p>
-<p>InterProScan的使用教程 <a href="http://www.bioinfo-scrounger.com/archives/164" target="_blank" rel="noopener">http://www.bioinfo-scrounger.com/archives/164</a></p>
-<h2 id="eggNOG-Mapper-（包括网页版和本地化）"><a href="#eggNOG-Mapper-（包括网页版和本地化）" class="headerlink" title="eggNOG-Mapper （包括网页版和本地化）"></a>eggNOG-Mapper （包括网页版和本地化）</h2><h3 id="网页版"><a href="#网页版" class="headerlink" title="网页版"></a>网页版</h3><p>关于这个注释方法网页版的推荐自己去摸索吧（就是和NCBI提交类似）=&gt; <a href="http://eggnogdb.embl.de/#/app/emapper" target="_blank" rel="noopener">http://eggnogdb.embl.de/#/app/emapper</a></p>
-<h3 id="本地化推荐两个教程吧："><a href="#本地化推荐两个教程吧：" class="headerlink" title="本地化推荐两个教程吧："></a>本地化推荐两个教程吧：</h3><p>序列功能注释神器：eggNOG-mapper，KEGG/COG/KOG/GO/BiGG 一网打尽 ： 序列功能注释神器：eggNOG-mapper，KEGG/COG/KOG/GO/BiGG 一网打尽 « Biostack.org =&gt; <a href="http://www.biostack.org/?p=698" target="_blank" rel="noopener">http://www.biostack.org/?p=698</a></p>
-<p>应该是最好的eggnog-mapper功能注释教程：应该是最好的eggnog-mapper功能注释教程 - 简书（生信媛）=&gt; <a href="https://www.jianshu.com/p/e646c0fa6443" target="_blank" rel="noopener">https://www.jianshu.com/p/e646c0fa6443</a></p>
-<p>个人思考:</p>
-<p>对于准确性的个人思考，基于比对，也就是基因相似性的注释方法(blastp,diamond)可能会取决于数据库的大小，因为在omicsbox中有涉及到相似度cut这一步，如果数据库不够大，那么相似度有的可能只为50(在cut值之上)，所以只使用Swiss-Prot等小数据库注释时可能需要提高cut值.</p>
-<p>eggnog的注释，存在两种模式diamond和hummer，前者官方推荐为存在接近物种，也就是在直系同源注释中有更好的表现，hummer则反之. 同样的，只要是比对，就会有cut相似度这一说，数据库的大小及深度(涉及的物种)，就会影响结果。其一个特点在于直系同源注释。这点omicsbox中出了filter with Taxid 来补充。</p>
-<p>我个人觉得目前还是blast+interpro的准确性会更高一些，当然如果eggnog持续开发,扩大其数据库，以及支持整合diamond和hummer的结果将会成为新的宠儿。</p>
-<p>参考资料</p>
-<p><a href="http://blog.sina.com.cn/s/blog_16152d7d70102xnc3.html" target="_blank" rel="noopener">http://blog.sina.com.cn/s/blog_16152d7d70102xnc3.html</a></p>
-<p><a href="https://github.com/bbuchfink/diamond" target="_blank" rel="noopener">https://github.com/bbuchfink/diamond</a></p>
-<p><a href="http://www.jinciwei.cn/a342744.html" target="_blank" rel="noopener">http://www.jinciwei.cn/a342744.html</a></p>
-<p><a href="https://github.com/bbuchfink/diamond/issues/79" target="_blank" rel="noopener">https://github.com/bbuchfink/diamond/issues/79</a></p>
-<p><a href="https://github.com/bbuchfink/diamond/issues/159" target="_blank" rel="noopener">https://github.com/bbuchfink/diamond/issues/159</a></p>
-<p><a href="https://github.com/bbuchfink/diamond/issues/165" target="_blank" rel="noopener">https://github.com/bbuchfink/diamond/issues/165</a></p>
-<p><a href="http://www.biostack.org/?p=698" target="_blank" rel="noopener">http://www.biostack.org/?p=698</a></p>
-<p><a href="https://www.jianshu.com/p/e646c0fa6443" target="_blank" rel="noopener">https://www.jianshu.com/p/e646c0fa6443</a></p>
-<p>NGS 生物信息学分析 V6.0 陈连福 郑越</p>
-
+                
         </div>
-        
-        
-        
     </div>
 </div>
 
 
 
-
-
-
-
-
-    <div class="card">
-    
-    <div class="card-content article ">
+<div class="card card-transparent">
+    <div class="level post-navigation is-flex-wrap is-mobile">
         
-        <div class="level article-meta is-size-7 is-uppercase is-mobile is-overflow-x-auto">
-            <div class="level-left">
-                <time class="level-item has-text-grey" datetime="2019-09-16T03:35:12.762Z">2019-09-16</time>
-                
-                
-                <span class="level-item has-text-grey">
-                    
-                    
-                    a minute read (About 121 words)
-                </span>
-                
-                
-            </div>
+        
+        <div class="level-end">
+            <a class="level level-item has-link-grey  article-nav-next" href="/2019/09/16/GO-annotation/">
+                <span class="level-item">De novo 基因组 GO 注释小窗口</span>
+                <i class="level-item fas fa-chevron-right"></i>
+            </a>
         </div>
-        
-        <h1 class="title is-size-3 is-size-4-mobile has-text-weight-normal">
-            
-                <a class="has-link-black-ter" href="/2019/09/16/hello-world/">Hello World</a>
-            
-        </h1>
-        <div class="content">
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="hljs-string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
-
-        </div>
-        
-        
         
     </div>
 </div>
-
-
-
-
-
-
 
 
 </div>
@@ -797,7 +702,7 @@
             <div class="level-start has-text-centered-mobile">
                 <a class="footer-logo is-block has-mb-6" href="/">
                 
-                    <img src="/images/og_image.png" alt="詹梦涛的生信博客" height="28">
+                    <img src="/images/og_image.png" alt="一个高杂合真菌基因组组装脚本" height="28">
                 
                 </a>
                 <p class="is-size-7">

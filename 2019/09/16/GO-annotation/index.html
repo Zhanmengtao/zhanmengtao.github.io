@@ -172,18 +172,18 @@
 <p>在nr注释完之后,就到使用 omicsbox  mapping GO id 了。omicsbox 所有版本均需要购买，但价格比以前（Blast2GO）便宜很多。当然如果条件不允许，那么不如就来个本地化吧。</p>
 <h2 id="diamond-及-Blast2go-的联用"><a href="#diamond-及-Blast2go-的联用" class="headerlink" title="diamond 及 Blast2go 的联用"></a>diamond 及 Blast2go 的联用</h2><h3 id="blast2go本地化"><a href="#blast2go本地化" class="headerlink" title="blast2go本地化"></a>blast2go本地化</h3><p>陈连福 centos6.9 代码：</p>
 <p>installing Blast2go Databases</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mkdir /opt/biosoft/blast2go</span><br><span class="line"></span><br><span class="line">cd /opt/biosoft/blast2go</span><br><span class="line"></span><br><span class="line">wget http:<span class="comment">//archive.geneontology.org/latest-full/go_monthly-assocdb-data.gz</span></span><br><span class="line"></span><br><span class="line">ascp -k <span class="number">1</span> -T -l <span class="number">200</span>M -<span class="selector-tag">i</span> ~/.aspera/connect/etc/asperaweb_id_dsa<span class="selector-class">.openssh</span> --host=ftp-private<span class="selector-class">.ncbi</span><span class="selector-class">.nlm</span><span class="selector-class">.nih</span><span class="selector-class">.gov</span> --user=anonftp --mode=recv /gene/DATA/gene_info<span class="selector-class">.gz</span> 。/</span><br><span class="line"></span><br><span class="line">ascp -k <span class="number">1</span> -T -l <span class="number">200</span>M -<span class="selector-tag">i</span> ~/.aspera/connect/etc/asperaweb_id_dsa<span class="selector-class">.openssh</span> --host=ftp-private<span class="selector-class">.ncbi</span><span class="selector-class">.nlm</span><span class="selector-class">.nih</span><span class="selector-class">.gov</span> --user=anonftp --mode=recv /gene/DATA/gene2accession<span class="selector-class">.gz</span> ./</span><br><span class="line"></span><br><span class="line">wget ftp:<span class="comment">//ftp.pir.georgetown.edu/databases/idmapping/idmapping.tb.gz</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">mkdir /opt/biosoft/blast2go</span><br><span class="line"></span><br><span class="line">cd /opt/biosoft/blast2go</span><br><span class="line"></span><br><span class="line">wget http:<span class="hljs-comment">//archive.geneontology.org/latest-full/go_monthly-assocdb-data.gz</span></span><br><span class="line"></span><br><span class="line">ascp -k <span class="hljs-number">1</span> -T -l <span class="hljs-number">200</span>M -<span class="hljs-selector-tag">i</span> ~/.aspera/connect/etc/asperaweb_id_dsa<span class="hljs-selector-class">.openssh</span> --host=ftp-private<span class="hljs-selector-class">.ncbi</span><span class="hljs-selector-class">.nlm</span><span class="hljs-selector-class">.nih</span><span class="hljs-selector-class">.gov</span> --user=anonftp --mode=recv /gene/DATA/gene_info<span class="hljs-selector-class">.gz</span> 。/</span><br><span class="line"></span><br><span class="line">ascp -k <span class="hljs-number">1</span> -T -l <span class="hljs-number">200</span>M -<span class="hljs-selector-tag">i</span> ~/.aspera/connect/etc/asperaweb_id_dsa<span class="hljs-selector-class">.openssh</span> --host=ftp-private<span class="hljs-selector-class">.ncbi</span><span class="hljs-selector-class">.nlm</span><span class="hljs-selector-class">.nih</span><span class="hljs-selector-class">.gov</span> --user=anonftp --mode=recv /gene/DATA/gene2accession<span class="hljs-selector-class">.gz</span> ./</span><br><span class="line"></span><br><span class="line">wget ftp:<span class="hljs-comment">//ftp.pir.georgetown.edu/databases/idmapping/idmapping.tb.gz</span></span><br></pre></td></tr></table></figure>
 
 <p>注：对于不能使用aspera加速下载的文件可以试试 lftp -e ‘pget -n NUM -c url; exit’实行多线程下载</p>
-<figure class="highlight stylus"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">gzip -dv go_monthly-assocdb-data.gz</span><br><span class="line"></span><br><span class="line">gzip -dv gene_info.gz</span><br><span class="line"></span><br><span class="line">gzip -dv gene2accession.gz</span><br><span class="line"></span><br><span class="line">gzip -dv idmapping<span class="selector-class">.tb</span><span class="selector-class">.gz</span></span><br><span class="line"></span><br><span class="line">tar zxf ~/software/local_b2g_db<span class="selector-class">.tar</span><span class="selector-class">.gz</span></span><br><span class="line"></span><br><span class="line">mv local_b2g_db<span class="comment">/* ./  &amp;&amp; rm -rf local_b2g_db/</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">perl -p -i -e 's/go_201512-assocdb-data/go_2017-assocdb-data/' install_blast2goDB.sh</span></span><br><span class="line"><span class="comment"></span></span><br><span class="line"><span class="comment">./install_blast2goDB.sh</span></span><br></pre></td></tr></table></figure>
+<figure class="highlight stylus hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">gzip -dv go_monthly-assocdb-data.gz</span><br><span class="line"></span><br><span class="line">gzip -dv gene_info.gz</span><br><span class="line"></span><br><span class="line">gzip -dv gene2accession.gz</span><br><span class="line"></span><br><span class="line">gzip -dv idmapping<span class="hljs-selector-class">.tb</span><span class="hljs-selector-class">.gz</span></span><br><span class="line"></span><br><span class="line">tar zxf ~/software/local_b2g_db<span class="hljs-selector-class">.tar</span><span class="hljs-selector-class">.gz</span></span><br><span class="line"></span><br><span class="line">mv local_b2g_db<span class="hljs-comment">/* ./  &amp;&amp; rm -rf local_b2g_db/</span></span><br><span class="line"><span class="hljs-comment"></span></span><br><span class="line"><span class="hljs-comment">perl -p -i -e 's/go_201512-assocdb-data/go_2017-assocdb-data/' install_blast2goDB.sh</span></span><br><span class="line"><span class="hljs-comment"></span></span><br><span class="line"><span class="hljs-comment">./install_blast2goDB.sh</span></span><br></pre></td></tr></table></figure>
 
-<h3 id="下载NR-数据库到自己的Blast-db-中"><a href="#下载NR-数据库到自己的Blast-db-中" class="headerlink" title="下载NR 数据库到自己的Blast+ db 中"></a>下载NR 数据库到自己的Blast+ db 中</h3><figure class="highlight vim"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget ftp://ftp.ncbi.nlm.nih.gov/<span class="keyword">blast</span>/executables/<span class="keyword">blast</span>+/<span class="number">2.2</span>.<span class="number">28</span>/ncbi-<span class="keyword">blast</span>-<span class="number">2.2</span>.<span class="number">28</span>+-x64-linux.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxf ncbi-<span class="keyword">blast</span>-<span class="number">2.2</span>.<span class="number">28</span>+-x64-linux.tar.gz -C /<span class="keyword">opt</span>/biosoft/</span><br><span class="line"></span><br><span class="line">/<span class="keyword">opt</span>/biosoft/ncbi-<span class="keyword">blast</span>-<span class="number">2.2</span>.<span class="number">28</span>+/bin/blastdbcmd -db nr -entry <span class="keyword">all</span> -out nr.faa</span><br></pre></td></tr></table></figure>
+<h3 id="下载NR-数据库到自己的Blast-db-中"><a href="#下载NR-数据库到自己的Blast-db-中" class="headerlink" title="下载NR 数据库到自己的Blast+ db 中"></a>下载NR 数据库到自己的Blast+ db 中</h3><figure class="highlight vim hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">wget ftp://ftp.ncbi.nlm.nih.gov/<span class="hljs-keyword">blast</span>/executables/<span class="hljs-keyword">blast</span>+/<span class="hljs-number">2.2</span>.<span class="hljs-number">28</span>/ncbi-<span class="hljs-keyword">blast</span>-<span class="hljs-number">2.2</span>.<span class="hljs-number">28</span>+-x64-linux.tar.gz</span><br><span class="line"></span><br><span class="line">tar -zxf ncbi-<span class="hljs-keyword">blast</span>-<span class="hljs-number">2.2</span>.<span class="hljs-number">28</span>+-x64-linux.tar.gz -C /<span class="hljs-keyword">opt</span>/biosoft/</span><br><span class="line"></span><br><span class="line">/<span class="hljs-keyword">opt</span>/biosoft/ncbi-<span class="hljs-keyword">blast</span>-<span class="hljs-number">2.2</span>.<span class="hljs-number">28</span>+/bin/blastdbcmd -db nr -entry <span class="hljs-keyword">all</span> -out nr.faa</span><br></pre></td></tr></table></figure>
 
 <p>值得注意的是这里我用的blastdbcmd是ncbi-blast-2.2.28+的，输出的 nr.faa 文件中序列名是 “&gt;gi|66816243|ref|XP_642131.1| hypothetical protein DDB_G0277827” ，但如果用的是 ncbi-blast-2.6.0+的 blastdbcmd，输出没有GI号，原因可能是：As of September 2016, the integer sequence identifiers known as “GIs” will no longer be included in the GenBank, GenPept, and FASTA formats supported by NCBI for the display of sequence records.In addition, the FASTA format will no longer include the database source abbreviation. Please refer to the NCBI News Announcement posting for more detail.</p>
-<figure class="highlight awk"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="regexp">//gi</span>thub.com<span class="regexp">/bbuchfink/</span>diamond<span class="regexp">/releases/</span>download<span class="regexp">/v0.9.24/</span>diamond-linux64.tar.gz</span><br></pre></td></tr></table></figure>
+<figure class="highlight awk hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget https:<span class="hljs-regexp">//gi</span>thub.com<span class="hljs-regexp">/bbuchfink/</span>diamond<span class="hljs-regexp">/releases/</span>download<span class="hljs-regexp">/v0.9.24/</span>diamond-linux64.tar.gz</span><br></pre></td></tr></table></figure>
 
 <p>注：如果在将diamond输出的XML文件导入到 b2g4pipe_v2.5 中出现 “Annotation of 0 seqs with 0 annots finished. Now searching for orfan IPRs…” 这个issues，那可能你的diamond版本有点旧了。</p>
-<figure class="highlight jboss-cli"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf diamond-linux64.tar.gz</span><br><span class="line"></span><br><span class="line">mv diamond ~<span class="string">/bin/</span></span><br><span class="line"></span><br><span class="line">cp <span class="string">../interpro/proteins.fasta</span> <span class="string">./</span></span><br><span class="line"></span><br><span class="line">ascp -k 1 -T -l 200M -i ~<span class="string">/.aspera/connect/etc/asperaweb_id_dsa.openssh</span> <span class="params">--host=ftp-private</span>.ncbi.nlm.nih.gov <span class="params">--user=anonftp</span> <span class="params">--mode=recv</span> <span class="string">/pub/taxonomy/accession2taxid/prot.accession2taxid.gz</span> <span class="string">./prot.accession2taxid.gz</span></span><br><span class="line"></span><br><span class="line">ascp -k 1 -T -l 200M -i ~<span class="string">/.aspera/connect/etc/asperaweb_id_dsa.openssh</span> <span class="params">--host=ftp-private</span>.ncbi.nlm.nih.gov <span class="params">--user=anonftp</span> <span class="params">--mode=recv</span> <span class="string">/pub/taxonomy/taxdmp.zip</span> <span class="string">./</span></span><br><span class="line"></span><br><span class="line">unzip taxdmp.zip</span><br><span class="line"></span><br><span class="line"><span class="string">/opt/biosoft/ncbi-blast-2.2.28</span>+<span class="string">/bin/blastdbcmd</span> -db nr -entry all -out nr.faa</span><br><span class="line"></span><br><span class="line">diamond makedb <span class="params">--in</span> nr.faa -d nr <span class="params">--taxonmap</span> prot.accession2taxid.gz <span class="params">--taxonnodes</span> nodes.dmp <span class="comment">#### DIAMOND v0.9.24</span></span><br><span class="line"></span><br><span class="line">diamond blastp <span class="params">--query</span> proteins.fasta <span class="params">--more-sensitive</span> <span class="params">--db</span> nr <span class="params">--evalue</span> 1e-5 <span class="params">--salltitles</span> <span class="params">--threads</span> 64 <span class="params">--outfmt</span> 5 <span class="params">--out</span> nr.xml</span><br><span class="line"></span><br><span class="line">perl -p -e 's/diamond 0.9.24/BLASTP 2.2.26/' nr.xml &gt; nr_new.xml</span><br><span class="line"></span><br><span class="line">perl -p -i -e 's/^Dbacces.dbname=.*<span class="string">/Dbacces.dbname=b2gdb/</span>' b2gPipe.properties</span><br><span class="line"></span><br><span class="line">perl -p -i -e 's/^Dbacces.dbhost=.*<span class="string">/Dbacces.dbhost=127.0.0.1/</span>' b2gPipe.properties</span><br><span class="line"></span><br><span class="line">java -cp *<span class="function">:ext</span>/*: es.blast2go.prog.B2GAnnotPipe -in <span class="string">../nr_new.xml</span> -out go -annot -dat -annex</span><br></pre></td></tr></table></figure>
+<figure class="highlight jboss-cli hljs"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">tar -zxf diamond-linux64.tar.gz</span><br><span class="line"></span><br><span class="line">mv diamond ~<span class="hljs-string">/bin/</span></span><br><span class="line"></span><br><span class="line">cp <span class="hljs-string">../interpro/proteins.fasta</span> <span class="hljs-string">./</span></span><br><span class="line"></span><br><span class="line">ascp -k 1 -T -l 200M -i ~<span class="hljs-string">/.aspera/connect/etc/asperaweb_id_dsa.openssh</span> <span class="hljs-params">--host=ftp-private</span>.ncbi.nlm.nih.gov <span class="hljs-params">--user=anonftp</span> <span class="hljs-params">--mode=recv</span> <span class="hljs-string">/pub/taxonomy/accession2taxid/prot.accession2taxid.gz</span> <span class="hljs-string">./prot.accession2taxid.gz</span></span><br><span class="line"></span><br><span class="line">ascp -k 1 -T -l 200M -i ~<span class="hljs-string">/.aspera/connect/etc/asperaweb_id_dsa.openssh</span> <span class="hljs-params">--host=ftp-private</span>.ncbi.nlm.nih.gov <span class="hljs-params">--user=anonftp</span> <span class="hljs-params">--mode=recv</span> <span class="hljs-string">/pub/taxonomy/taxdmp.zip</span> <span class="hljs-string">./</span></span><br><span class="line"></span><br><span class="line">unzip taxdmp.zip</span><br><span class="line"></span><br><span class="line"><span class="hljs-string">/opt/biosoft/ncbi-blast-2.2.28</span>+<span class="hljs-string">/bin/blastdbcmd</span> -db nr -entry all -out nr.faa</span><br><span class="line"></span><br><span class="line">diamond makedb <span class="hljs-params">--in</span> nr.faa -d nr <span class="hljs-params">--taxonmap</span> prot.accession2taxid.gz <span class="hljs-params">--taxonnodes</span> nodes.dmp <span class="hljs-comment">#### DIAMOND v0.9.24</span></span><br><span class="line"></span><br><span class="line">diamond blastp <span class="hljs-params">--query</span> proteins.fasta <span class="hljs-params">--more-sensitive</span> <span class="hljs-params">--db</span> nr <span class="hljs-params">--evalue</span> 1e-5 <span class="hljs-params">--salltitles</span> <span class="hljs-params">--threads</span> 64 <span class="hljs-params">--outfmt</span> 5 <span class="hljs-params">--out</span> nr.xml</span><br><span class="line"></span><br><span class="line">perl -p -e 's/diamond 0.9.24/BLASTP 2.2.26/' nr.xml &gt; nr_new.xml</span><br><span class="line"></span><br><span class="line">perl -p -i -e 's/^Dbacces.dbname=.*<span class="hljs-string">/Dbacces.dbname=b2gdb/</span>' b2gPipe.properties</span><br><span class="line"></span><br><span class="line">perl -p -i -e 's/^Dbacces.dbhost=.*<span class="hljs-string">/Dbacces.dbhost=127.0.0.1/</span>' b2gPipe.properties</span><br><span class="line"></span><br><span class="line">java -cp *<span class="hljs-function">:ext</span>/*: es.blast2go.prog.B2GAnnotPipe -in <span class="hljs-string">../nr_new.xml</span> -out go -annot -dat -annex</span><br></pre></td></tr></table></figure>
 
 <h3 id="整合InterProScan的结果可以使用下面的脚本"><a href="#整合InterProScan的结果可以使用下面的脚本" class="headerlink" title="整合InterProScan的结果可以使用下面的脚本"></a>整合InterProScan的结果可以使用下面的脚本</h3><p>merge_interpro_to_go.pl b2g4pipe/go.annot ../interpro/interpro.tsv &gt; go.annot</p>
 <h2 id="InterProScan"><a href="#InterProScan" class="headerlink" title="InterProScan"></a>InterProScan</h2><p>对于 InterProScan 可以本地化，也可以用 interProScan5.pl 将序列发送到官方服务器进行注释，资源允许，还是推荐本地化，网络版感觉还是有点慢～一个本地化教程: </p>
@@ -249,6 +249,13 @@
 <div class="card card-transparent">
     <div class="level post-navigation is-flex-wrap is-mobile">
         
+        <div class="level-start">
+            <a class="level level-item has-link-grey  article-nav-prev" href="/2019/10/30/复杂基因组组装/">
+                <i class="level-item fas fa-chevron-left"></i>
+                <span class="level-item">一个高杂合真菌基因组组装脚本</span>
+            </a>
+        </div>
+        
         
         <div class="level-end">
             <a class="level level-item has-link-grey  article-nav-next" href="/2019/09/16/hello-world/">
@@ -304,7 +311,7 @@
                         Posts
                     </p>
                     <p class="title has-text-weight-normal">
-                        2
+                        3
                     </p>
                 </div>
             </div>
@@ -491,6 +498,25 @@
         
         <article class="media">
             
+            <a href="/2019/10/30/复杂基因组组装/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="一个高杂合真菌基因组组装脚本">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-30T15:13:32.836Z">2019-10-30</time></div>
+                    <a href="/2019/10/30/复杂基因组组装/" class="title has-link-black-ter is-size-6 has-text-weight-normal">一个高杂合真菌基因组组装脚本</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/09/16/GO-annotation/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="De novo 基因组 GO 注释小窗口">
@@ -538,6 +564,17 @@
             Archives
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/09/">
@@ -588,6 +625,25 @@
         
         <article class="media">
             
+            <a href="/2019/10/30/复杂基因组组装/" class="media-left">
+                <p class="image is-64x64">
+                    <img class="thumbnail" src="/images/thumbnail.svg" alt="一个高杂合真菌基因组组装脚本">
+                </p>
+            </a>
+            
+            <div class="media-content">
+                <div class="content">
+                    <div><time class="has-text-grey is-size-7 is-uppercase" datetime="2019-10-30T15:13:32.836Z">2019-10-30</time></div>
+                    <a href="/2019/10/30/复杂基因组组装/" class="title has-link-black-ter is-size-6 has-text-weight-normal">一个高杂合真菌基因组组装脚本</a>
+                    <p class="is-size-7 is-uppercase">
+                        
+                    </p>
+                </div>
+            </div>
+        </article>
+        
+        <article class="media">
+            
             <a href="/2019/09/16/GO-annotation/" class="media-left">
                 <p class="image is-64x64">
                     <img class="thumbnail" src="/images/thumbnail.svg" alt="De novo 基因组 GO 注释小窗口">
@@ -635,6 +691,17 @@
             Archives
         </h3>
         <ul class="menu-list">
+        
+        <li>
+            <a class="level is-marginless" href="/archives/2019/10/">
+                <span class="level-start">
+                    <span class="level-item">October 2019</span>
+                </span>
+                <span class="level-end">
+                    <span class="level-item tag">1</span>
+                </span>
+            </a>
+        </li>
         
         <li>
             <a class="level is-marginless" href="/archives/2019/09/">
